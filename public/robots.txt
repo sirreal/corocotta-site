@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /w/
+Disallow: /corowiki/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /backups/
