@@ -1,0 +1,23 @@
+{
+  "name": "corocotta-site",
+  "version": "1.0.0",
+  "description": "Site for Corocotta Ultimate",
+  "main": " ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sirreal/corocotta-site.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sirreal/corocotta-site/issues"
+  },
+  "homepage": "https://github.com/sirreal/corocotta-site#readme",
+  "private": true,
+  "devDependencies": {
+    "browser-sync": "^2.7.6"
+  }
+}
