@@ -4,7 +4,18 @@
   "description": "Site for Corocotta Ultimate",
   "main": " ",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -fr public/wp-content/themes/corocotta2015/{css,js}",
+
+    "prebuild": "mkdir -p public/wp-content/themes/corocotta2015/{css,js}",
+    "build": "concurrent 'npm run build-css'",
+
+    "build-css": "node-sass -qr sass -o public/wp-content/themes/corocotta2015/css",
+
+    "watch": "npm run build && concurrent -k 'npm run watch-css' 'npm run watch-browser'",
+
+    "watch-css": "node-sass -wr sass -o public/wp-content/themes/corocotta2015/css",
+    "watch-browser": "browser-sync start --config bs-config.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +29,8 @@
   "homepage": "https://github.com/sirreal/corocotta-site#readme",
   "private": true,
   "devDependencies": {
-    "browser-sync": "^2.7.6"
+    "browser-sync": "^2.7.6",
+    "concurrently": "^0.1.1",
+    "node-sass": "^3.1.2"
   }
 }
