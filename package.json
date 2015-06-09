@@ -5,9 +5,9 @@
   "main": " ",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm -fr public/wp-content/themes/corocotta2015/{css,js}",
+    "clean": "rm -fr public/wp-content/themes/corocotta2015/css public/wp-content/themes/corocotta2015/js",
 
-    "prebuild": "mkdir -p public/wp-content/themes/corocotta2015/{css,js}",
+    "prebuild": "mkdir -p public/wp-content/themes/corocotta2015/css public/wp-content/themes/corocotta2015/js",
     "build": "concurrent 'npm run build-css'",
 
     "build-css": "node-sass -qr sass -o public/wp-content/themes/corocotta2015/css",

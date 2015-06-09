@@ -58,7 +58,7 @@ module.exports = {
     "injectChanges": true,
     "startPath": null,
     "minify": true,
-    "host": "dev.corocotta.es",
+    "host": null,
     "codeSync": true,
     "timestamps": true,
     "clientEvents": [
