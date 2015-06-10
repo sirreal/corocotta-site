@@ -125,7 +125,7 @@ function corocotta_scripts() {
   wp_enqueue_style( 'coroctta-fonts', corocotta_fonts_url(), array(), null );
 
   // Load our main stylesheet.
-  wp_enqueue_style( 'corocotta-style', get_stylesheet_uri() . '/css/main.css' );
+  wp_enqueue_style( 'corocotta-style', get_template_directory_uri() . '/css/main.css' );
 
   wp_enqueue_script( 'corocotta-script', get_template_directory_uri() . '/js/main.js', array( 'jquery' ), '0.1.0', true );
 
