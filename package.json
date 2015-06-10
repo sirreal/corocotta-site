@@ -9,10 +9,10 @@
     "prebuild": "mkdir -p public/wp-content/themes/corocotta2015/css public/wp-content/themes/corocotta2015/js",
     "build": "concurrent 'npm run build-css'",
     "build-css": "node-sass -qr sass -o public/wp-content/themes/corocotta2015/css",
-    "watch": "npm run build && concurrent -k 'npm run watch-css' 'npm run watch-browser'",
+    "watch": "npm run build && concurrent -k 'npm run watch-css' 'npm run watch-js' 'npm run watch-browser'",
     "watch-css": "node-sass -wr sass -o public/wp-content/themes/corocotta2015/css",
+    "watch-js": "babel -w js/main.js -o public/wp-content/themes/corocotta2015/js/main.js",
     "watch-browser": "browser-sync start --config bs-config.js",
-
     "sync": "npm_scripts/sync.sh",
     "auto-push": "onchange 'sass/**/*.scss' 'js/**/*.js' 'public/wp-content/themes/corocotta2015/**/*.php' -- npm run sync"
   },
@@ -28,6 +28,7 @@
   "homepage": "https://github.com/sirreal/corocotta-site#readme",
   "private": true,
   "devDependencies": {
+    "babel": "^5.5.6",
     "browser-sync": "^2.7.6",
     "concurrently": "^0.1.1",
     "node-sass": "^3.1.2",
