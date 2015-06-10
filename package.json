@@ -14,7 +14,7 @@
     "watch-browser": "browser-sync start --config bs-config.js",
 
     "sync": "npm_scripts/sync.sh",
-    "auto-push": "onchange 'sass/**/*.scss' 'public/wp-content/themes/corocotta2015/**/*.php' -- npm run sync"
+    "auto-push": "onchange 'sass/**/*.scss' 'js/**/*.js' 'public/wp-content/themes/corocotta2015/**/*.php' -- npm run sync"
   },
   "repository": {
     "type": "git",
