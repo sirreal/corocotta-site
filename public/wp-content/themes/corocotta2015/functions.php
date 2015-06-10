@@ -124,37 +124,41 @@ function corocotta_scripts() {
   // Add custom fonts, used in the main stylesheet.
   wp_enqueue_style( 'coroctta-fonts', corocotta_fonts_url(), array(), null );
 
-  // Add Genericons, used in the main stylesheet.
-  wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.2' );
-
   // Load our main stylesheet.
   wp_enqueue_style( 'corocotta-style', get_stylesheet_uri() );
 
-  // Load the Internet Explorer specific stylesheet.
-  wp_enqueue_style( 'corocotta-ie', get_template_directory_uri() . '/css/ie.css', array( 'corocotta-style' ), '20141010' );
-  wp_style_add_data( 'corocotta-ie', 'conditional', 'lt IE 9' );
+  wp_enqueue_script( 'corocotta-script', get_template_directory_uri() . '/js/main.js', array( 'jquery' ), '0.1.0', true );
 
-  // Load the Internet Explorer 7 specific stylesheet.
-  wp_enqueue_style( 'corocotta-ie7', get_template_directory_uri() . '/css/ie7.css', array( 'corocotta-style' ), '20141010' );
-  wp_style_add_data( 'corocotta-ie7', 'conditional', 'lt IE 8' );
 
-  wp_enqueue_script( 'corocotta-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20141010', true );
 
-  if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-    wp_enqueue_script( 'comment-reply' );
-  }
-
-  if ( is_singular() && wp_attachment_is_image() ) {
-    wp_enqueue_script( 'corocotta-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20141010' );
-  }
-
-  wp_enqueue_script( 'corocotta-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20150330', true );
-  wp_localize_script( 'corocotta-script', 'screenReaderText', array(
-    'expand'   => '<span class="screen-reader-text">' . __( 'expand child menu', 'corocotta' ) . '</span>',
-    'collapse' => '<span class="screen-reader-text">' . __( 'collapse child menu', 'corocotta' ) . '</span>',
-  ) );
 }
 add_action( 'wp_enqueue_scripts', 'corocotta_scripts' );
+
+
+/**
+* update jQuery and load from CDN
+*/
+function corocotta_wp_print_scripts() {
+  // Don't affect admin jQuery
+  if (is_admin()) return;
+
+  // Don't affect login or signup jQuery
+  global $pagenow;
+  if ($pagenow === 'wp-login.php' || $pagenow === 'wp-register.php') return;
+
+  wp_deregister_script('jquery-core');
+  wp_deregister_script('jquery-migrate');
+
+  if (WP_DEBUG) {
+    wp_register_script('jquery-core', '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js', false, '1.11.1');
+    wp_register_script('jquery-migrate', '//code.jquery.com/jquery-migrate-1.2.1.js', false, '1.2.1');
+  } else {
+    wp_register_script('jquery-core', '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', false, '1.11.1');
+    wp_register_script('jquery-migrate', '//code.jquery.com/jquery-migrate-1.2.1.min.js', false, '1.2.1');
+  }
+}
+add_action('wp_print_scripts', 'corocotta_wp_print_scripts');
+
 
 /**
  * Add featured image as background image to post navigation elements.
