@@ -32,6 +32,7 @@
     "browser-sync": "^2.7.6",
     "concurrently": "^0.1.1",
     "node-sass": "^3.1.2",
+    "normalize.css": "^3.0.3",
     "onchange": "^1.1.0"
   }
 }
