@@ -21,7 +21,7 @@ module.exports = {
     },
     "files": [
         "public/wp-content/themes/corocotta2015/**/*.php",
-        "public/wp-content/themes/corocotta2015/css/*",
+        "public/wp-content/themes/corocotta2015/css/*.css",
         "public/wp-content/themes/corocotta2015/js/*.js"
     ],
     "watchOptions": {},
