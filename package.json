@@ -15,7 +15,9 @@
     "watch": "npm run build && concurrent -k 'npm run watch-css' 'npm run watch-browser'",
 
     "watch-css": "node-sass -wr sass -o public/wp-content/themes/corocotta2015/css",
-    "watch-browser": "browser-sync start --config bs-config.js"
+    "watch-browser": "browser-sync start --config bs-config.js",
+
+    "sync": "npm_scripts/sync.sh"
   },
   "repository": {
     "type": "git",
