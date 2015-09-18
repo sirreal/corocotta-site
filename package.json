@@ -33,6 +33,6 @@
     "concurrently": "^0.1.1",
     "node-sass": "^3.1.2",
     "normalize.css": "^3.0.3",
-    "onchange": "^1.1.0"
+    "onchange": "^2.0.0"
   }
 }

@@ -1,0 +1,12 @@
+--recurse=yes
+--tag-relative=yes
+--exclude=.svn
+--exclude=tests
+--exclude=node_modules
+--exclude=webroot/wp-includes/js
+--exclude=webroot/wp-admin/js
+
+--PHP-kinds=-v
+--languages=+PHP,+JavaScript
+--fields=+l
+-f .git/ctags
